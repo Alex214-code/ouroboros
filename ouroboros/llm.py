@@ -146,10 +146,13 @@ class LLMClient:
                     "HTTP-Referer": "https://colab.research.google.com/",
                     "X-Title": "Ouroboros",
                 }
+            timeout_sec = 300 if self._backend == "ollama" else 120
             self._client = OpenAI(
                 base_url=self._base_url,
                 api_key=self._api_key,
                 default_headers=headers if headers else None,
+                timeout=timeout_sec,
+                max_retries=1,
             )
         return self._client
 

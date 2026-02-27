@@ -12,9 +12,9 @@ import pathlib
 OLLAMA_BASE_URL = "http://localhost:11434/v1"
 
 # Модели — все через Ollama
-OUROBOROS_MODEL = "qwen3:14b"             # основная модель (текст)
-OUROBOROS_MODEL_CODE = "qwen3:14b"        # модель для кода
-OUROBOROS_MODEL_LIGHT = "qwen3:14b"       # лёгкая модель
+OUROBOROS_MODEL = "qwen3:8b"              # основная модель (текст)
+OUROBOROS_MODEL_CODE = "qwen3:8b"         # модель для кода
+OUROBOROS_MODEL_LIGHT = "qwen3:8b"        # лёгкая модель
 OUROBOROS_VISION_MODEL = "minicpm-v:8b"   # vision-модель (подгружается по требованию, ~5GB RAM)
 
 # ============================================================
