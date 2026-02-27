@@ -275,3 +275,4 @@
 {"ts": "2026-02-27T12:05:14.953014+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-27T12:05:45.628549+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-27T12:06:16.312119+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:06:50.043848+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
