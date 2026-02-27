@@ -61,7 +61,7 @@ def fetch_openrouter_pricing() -> Dict[str, Tuple[float, float, float]]:
         models = data.get("data", [])
 
         # Prefixes we care about
-        prefixes = ("anthropic/", "openai/", "google/", "meta-llama/", "x-ai/", "qwen/")
+        prefixes = ("anthropic/", "openai/", "google/", "meta-llama/", "x-ai/", "qwen/", "stepfun/")
 
         pricing_dict = {}
         for model in models:
@@ -220,14 +220,17 @@ class LLMClient:
             if self._backend == "ollama":
                 # Ollama: pass tools as-is, no cache_control
                 kwargs["tools"] = tools
-            else:
-                # OpenRouter: add cache_control to last tool for Anthropic prompt caching
+            elif model.startswith("anthropic/"):
+                # Anthropic via OpenRouter: add cache_control to last tool for prompt caching
                 tools_with_cache = [t for t in tools]  # shallow copy
                 if tools_with_cache:
                     last_tool = {**tools_with_cache[-1]}
                     last_tool["cache_control"] = {"type": "ephemeral", "ttl": "1h"}
                     tools_with_cache[-1] = last_tool
                 kwargs["tools"] = tools_with_cache
+            else:
+                # Other OpenRouter models: pass tools as-is
+                kwargs["tools"] = tools
             kwargs["tool_choice"] = tool_choice
 
         resp = client.chat.completions.create(**kwargs)

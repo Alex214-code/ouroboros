@@ -184,3 +184,24 @@
 {"ts": "2026-02-27T10:56:15.530669+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-27T10:56:15.547513+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "ef942b6fe493597ecdaee8c0d3ae511b5802e849", "max_workers": 1, "model_default": "qwen3:8b", "model_code": "qwen3:8b", "model_light": "qwen3:8b", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
 {"ts": "2026-02-27T10:56:16.814168+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "ef942b6fe493597ecdaee8c0d3ae511b5802e849", "observed_sha": "ef942b6fe493597ecdaee8c0d3ae511b5802e849", "worker_pid": 19632}
+{"ts": "2026-02-27T10:56:20.661826+00:00", "type": "auto_resume_triggered"}
+{"ts": "2026-02-27T10:56:23.308725+00:00", "type": "main_loop_heartbeat", "offset": 33823928, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T10:56:56.263792+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T10:57:32.941698+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T10:58:06.675871+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T10:58:36.976534+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T10:59:07.801683+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T10:59:40.014214+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:00:10.758537+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:00:45.509153+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:01:20.260067+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:01:58.734090+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:02:36.900610+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:03:07.240576+00:00", "type": "main_loop_slow_cycle", "duration_sec": 29.808}
+{"ts": "2026-02-27T11:03:07.246044+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:03:44.075067+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:04:19.730743+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:04:58.767229+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:34:33.108297+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T11:34:33.124534+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "b4d0309e3fb138a4f9ca3788e913327a9d190bd8", "max_workers": 1, "model_default": "stepfun/step-3.5-flash:free", "model_code": "stepfun/step-3.5-flash:free", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-27T11:34:34.135003+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "b4d0309e3fb138a4f9ca3788e913327a9d190bd8", "observed_sha": "b4d0309e3fb138a4f9ca3788e913327a9d190bd8", "worker_pid": 28260}

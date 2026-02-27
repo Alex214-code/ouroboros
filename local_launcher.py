@@ -53,8 +53,7 @@ import local_config as cfg
 # ----------------------------
 # 0.2) Set environment variables BEFORE any imports
 # ----------------------------
-os.environ["OUROBOROS_LLM_BACKEND"] = "ollama"
-os.environ["OLLAMA_BASE_URL"] = cfg.OLLAMA_BASE_URL
+os.environ["OUROBOROS_LLM_BACKEND"] = "openrouter"
 os.environ["OUROBOROS_MODEL"] = cfg.OUROBOROS_MODEL
 os.environ["OUROBOROS_MODEL_CODE"] = cfg.OUROBOROS_MODEL_CODE
 os.environ["OUROBOROS_MODEL_LIGHT"] = cfg.OUROBOROS_MODEL_LIGHT
@@ -65,19 +64,21 @@ os.environ["GITHUB_TOKEN"] = cfg.GITHUB_TOKEN
 os.environ["TOTAL_BUDGET"] = str(cfg.TOTAL_BUDGET)
 os.environ["OUROBOROS_MAX_ROUNDS"] = str(cfg.MAX_ROUNDS)
 os.environ["OUROBOROS_BG_BUDGET_PCT"] = str(cfg.BG_BUDGET_PCT)
-# Dummy keys so assertions don't fail
-os.environ.setdefault("OPENROUTER_API_KEY", "local-ollama-no-key-needed")
+
+# OpenRouter API key (from .env)
+_or_key = os.environ.get("OPENROUTER_API_KEY", "")
+if not _or_key:
+    log.error("OPENROUTER_API_KEY not set! Add it to .env file.")
+    sys.exit(1)
+os.environ["OPENROUTER_API_KEY"] = _or_key
 os.environ.setdefault("OPENAI_API_KEY", "")
 os.environ.setdefault("ANTHROPIC_API_KEY", "")
 
-# Ollama CPU optimizations
-os.environ.setdefault("OLLAMA_NUM_THREADS", str(cfg.OLLAMA_NUM_THREADS))
-os.environ.setdefault("OLLAMA_NUM_CTX", str(cfg.OLLAMA_NUM_CTX))
-os.environ.setdefault("OLLAMA_NUM_PARALLEL", "1")      # 1 request at a time (CPU)
-os.environ.setdefault("OLLAMA_MAX_LOADED_MODELS", "2")  # gpt-oss + vision (~21GB, ~15GB free)
+# Ollama env vars (not used with OpenRouter, kept for compatibility)
+os.environ.setdefault("OLLAMA_BASE_URL", cfg.OLLAMA_BASE_URL)
 
-# Vision model for desktop analysis (loads on demand)
-os.environ["OUROBOROS_VISION_MODEL"] = getattr(cfg, "OUROBOROS_VISION_MODEL", "minicpm-v:8b")
+# Vision model for desktop analysis
+os.environ["OUROBOROS_VISION_MODEL"] = getattr(cfg, "OUROBOROS_VISION_MODEL", "qwen/qwen3-vl-235b-a22b-thinking")
 
 # Disable pre-push tests for faster local iteration
 os.environ.setdefault("OUROBOROS_PRE_PUSH_TESTS", "0")
@@ -140,7 +141,7 @@ def install_deps():
 def main():
     from ouroboros.apply_patch import install as install_apply_patch
 
-    check_ollama()
+    # check_ollama()  # Not needed for OpenRouter backend
     install_deps()
     install_apply_patch()
 
@@ -536,9 +537,10 @@ def main():
         log.warning("Consciousness auto-start failed: %s", e)
 
     log.info("=" * 50)
-    log.info("Ouroboros LOCAL mode started")
+    log.info("Ouroboros LOCAL mode started (OpenRouter backend)")
     log.info(f"  Model: {cfg.OUROBOROS_MODEL}")
-    log.info(f"  Ollama: {cfg.OLLAMA_BASE_URL}")
+    log.info(f"  Vision: {cfg.OUROBOROS_VISION_MODEL}")
+    log.info(f"  Backend: OpenRouter (free tier)")
     log.info(f"  Workers: {cfg.MAX_WORKERS}")
     log.info(f"  Auto-push: every {cfg.AUTO_PUSH_INTERVAL_SEC}s")
     log.info("  Send any message to your Telegram bot to begin.")
