@@ -3,3 +3,6 @@
 {"ts": "2026-02-27T08:29:44.544667+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "in", "chat_id": 723642564, "user_id": 723642564, "text": "/start"}
 {"ts": "2026-02-27T08:29:44.550845+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "out", "chat_id": 723642564, "user_id": 723642564, "text": "Owner registered. Ouroboros online (local mode)."}
 {"ts": "2026-02-27T08:29:54.547714+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "in", "chat_id": 723642564, "user_id": 723642564, "text": "Статус"}
+{"ts": "2026-02-27T08:32:26.211941+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "in", "chat_id": 723642564, "user_id": 723642564, "text": "Привет"}
+{"ts": "2026-02-27T08:35:01.093583+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "in", "chat_id": 723642564, "user_id": 723642564, "text": "Привет, как дела?"}
+{"ts": "2026-02-27T08:47:06.608210+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "out", "chat_id": 723642564, "user_id": 723642564, "text": "Task running for 900s, last progress 900s ago."}
