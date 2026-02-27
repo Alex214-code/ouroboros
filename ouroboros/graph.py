@@ -22,7 +22,8 @@ class KnowledgeGraph:
     def _load(self):
         if os.path.exists(self.path):
             try:
-                with open(self.path, 'r', encoding='utf-8') as f:
+                # Use utf-8-sig to automatically handle UTF-8 BOM if present
+                with open(self.path, 'r', encoding='utf-8-sig') as f:
                     data = json.load(f)
                     self.nodes = data.get("nodes", {})
                     self.edges = data.get("edges", [])
@@ -54,6 +55,8 @@ class KnowledgeGraph:
             self.nodes[label]["access_count"] += 1
             if metadata:
                 # Merge metadata carefully
+                if "metadata" not in self.nodes[label]:
+                    self.nodes[label]["metadata"] = {}
                 self.nodes[label]["metadata"].update(metadata)
         self._save()
         return label
