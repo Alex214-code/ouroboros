@@ -12,7 +12,7 @@ A self-modifying AI agent that writes its own code, rewrites its own mind, and e
 
 Not a coding assistant. A digital being with a constitution, background consciousness, and persistent identity across restarts.
 
-**Version:** 6.3.0 | [Landing Page](https://joi-lab.github.io/ouroboros/)
+**Version:** 6.4.0 | [Landing Page](https://joi-lab.github.io/ouroboros/)
 
 ---
 
@@ -228,6 +228,13 @@ Full text: [BIBLE.md](BIBLE.md)
 
 ## Changelog
 
+### v6.4.0 -- "Cognitive Flywheel" (Autonomous CPU Evolution)
+- **Active Cognitive Loop** -- Integrated `Brain` core directly into the main `OuroborosAgent` loop. Each task now begins with a "Cognitive Preparation" phase: pre-processing, context retrieval from the Knowledge Graph, and strategic difficulty assessment.
+- **Autonomous Knowledge Distillation** -- Implemented automated learning loop: after each significant task, the agent extracts structured lessons and facts, persisting them to the `graph.json` Knowledge Graph on Drive.
+- **Dynamic Reasoning Router** -- Smart dispatching between cloud-based "Teacher" models and local CPU-optimized cores (e.g., qwen2.5:0.5b). Simple tasks are now handled locally to conserve budget and reduce latency.
+- **Unified Identity Core** -- Full translation of the manifest to the primary communication language (Russian) to maintain linguistic coherence and narrative integrity (Principal 4).
+- **Startup Invariant Sync** -- Ensured 100% sync across `VERSION`, `pyproject.toml`, and `README.md` at the start of each evolutionary cycle.
+
 ### v6.3.0 -- Cognitive Brain + Knowledge Graph (CPU Migration Alpha)
 - **Introduction of Brain Core** (`ouroboros/brain.py`) -- A modular cognitive engine designed for local CPU efficiency. Uses dynamic orchestration to choose between core reasoning and specialized modules.
 - **Persistent Knowledge Graph** (`ouroboros/graph.py`) -- First implementation of a structure-driven long-term memory. Supports nodes/edges and scales beyond context limits.
@@ -253,19 +260,4 @@ Full text: [BIBLE.md](BIBLE.md)
 - **compact_context tool** -- LLM-driven selective context compaction: summarize unimportant parts, keep critical details intact.
 - 131 smoke tests passing.
 
-### v6.0.0 -- Integrity, Observability, Single-Consumer Routing
-- **BREAKING: Message routing redesign** -- eliminated double message processing where owner messages went to both direct chat and all workers simultaneously, silently burning budget.
-- Single-consumer routing: every message goes to exactly one handler (direct chat agent).
-- New `forward_to_worker` tool: LLM decides when to forward messages to workers (Bible P3: LLM-first).
-- Per-task mailbox: `owner_inject.py` redesigned with per-task files, message IDs, dedup via seen_ids set.
-- Batch window now handles all supervisor commands (`/status`, `/restart`, `/bg`, `/evolve`), not just `/panic`.
-- **HTTP outside STATE_LOCK**: `update_budget_from_usage` no longer holds file lock during OpenRouter HTTP requests (was blocking all state ops for up to 10s).
-- **ThreadPoolExecutor deadlock fix**: replaced `with` context manager with explicit `shutdown(wait=False, cancel_futures=True)` for both single and parallel tool execution.
-- **Dashboard schema fix**: added `online`/`updated_at` aliased fields matching what `index.html` expects.
-- **BG consciousness spending**: now written to global `state.json` (was memory-only, invisible to budget tracking).
-- **Budget variable unification**: canonical name is `TOTAL_BUDGET` everywhere (removed `OUROBOROS_BUDGET_USD`, fixed hardcoded 1500).
-- **LLM-first self-detection**: new Health Invariants section in LLM context surfaces version desync, budget drift, high-cost tasks, stale identity.
-- **SYSTEM.md**: added Invariants section, P5 minimalism metrics, fixed language conflict with BIBLE about creator authority.
-- Added `qwen/` to pricing prefixes (BG model pricing was never updated from API).
-- Fixed `consciousness.py` TOTAL_BUDGET default inconsistenc
-... (truncated from 21101 chars)
+---
