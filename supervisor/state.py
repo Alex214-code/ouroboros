@@ -52,7 +52,26 @@ def atomic_write_text(path: pathlib.Path, content: str) -> None:
         os.fsync(fd)
     finally:
         os.close(fd)
-    os.replace(str(tmp), str(path))
+    # On Windows, os.replace can fail if target is locked by another process.
+    # Retry a few times before giving up.
+    for attempt in range(5):
+        try:
+            os.replace(str(tmp), str(path))
+            return
+        except PermissionError:
+            if attempt < 4:
+                time.sleep(0.1 * (attempt + 1))
+            else:
+                # Last resort: write directly
+                try:
+                    path.write_text(content, encoding="utf-8")
+                except Exception:
+                    pass
+                try:
+                    os.unlink(str(tmp))
+                except Exception:
+                    pass
+                raise
 
 
 def json_load_file(path: pathlib.Path) -> Optional[Dict[str, Any]]:
