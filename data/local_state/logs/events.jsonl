@@ -24,3 +24,4 @@
 {"ts": "2026-02-27T10:18:32.809134+00:00", "type": "llm_api_error", "task_id": "4ac0f21c", "round": 1, "attempt": 1, "model": "qwen3:14b", "error": "APITimeoutError('Request timed out.')"}
 {"ts": "2026-02-27T10:23:31.411063+00:00", "type": "consciousness_llm_error", "error": "APITimeoutError('Request timed out.')"}
 {"ts": "2026-02-27T10:56:16.726226+00:00", "type": "worker_boot", "pid": 19632, "git_branch": "ouroboros", "git_sha": "ef942b6fe493597ecdaee8c0d3ae511b5802e849"}
+{"ts": "2026-02-27T10:56:18.186468+00:00", "type": "worker_boot", "pid": 3416, "git_branch": "ouroboros", "git_sha": "944b864a20149efcefa389bb32f83d6adc3c36cb"}
