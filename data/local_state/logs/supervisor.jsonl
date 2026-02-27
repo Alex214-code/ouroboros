@@ -213,3 +213,35 @@
 {"ts": "2026-02-27T11:36:20.540123+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-27T11:36:20.563041+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "61317240f92edf48daea65dd7ac0ace4453ff5e6", "max_workers": 1, "model_default": "stepfun/step-3.5-flash:free", "model_code": "stepfun/step-3.5-flash:free", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
 {"ts": "2026-02-27T11:36:21.828719+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "61317240f92edf48daea65dd7ac0ace4453ff5e6", "observed_sha": "61317240f92edf48daea65dd7ac0ace4453ff5e6", "worker_pid": 7488}
+{"ts": "2026-02-27T11:36:25.941375+00:00", "type": "auto_resume_triggered"}
+{"ts": "2026-02-27T11:36:28.002129+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:36:58.579538+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:37:31.706288+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:38:02.500797+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:38:35.479366+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:39:07.462061+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:39:38.219891+00:00", "type": "main_loop_heartbeat", "offset": 33823930, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:40:00.929667+00:00", "type": "task_metrics_event", "task_id": "31f7c292", "task_type": "task", "duration_sec": 213.559, "tool_calls": 32, "tool_errors": 2}
+{"ts": "2026-02-27T11:40:09.990569+00:00", "type": "main_loop_heartbeat", "offset": 33823930, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:40:40.722412+00:00", "type": "main_loop_heartbeat", "offset": 33823930, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:41:14.127677+00:00", "type": "main_loop_heartbeat", "offset": 33823931, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:41:46.857362+00:00", "type": "main_loop_heartbeat", "offset": 33823931, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:42:17.763474+00:00", "type": "main_loop_heartbeat", "offset": 33823931, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:42:40.709953+00:00", "type": "task_metrics_event", "task_id": "37d13395", "task_type": "task", "duration_sec": 97.178, "tool_calls": 5, "tool_errors": 1}
+{"ts": "2026-02-27T11:42:50.920030+00:00", "type": "main_loop_heartbeat", "offset": 33823931, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:43:21.771600+00:00", "type": "main_loop_heartbeat", "offset": 33823931, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:43:56.831694+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:44:28.728516+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:45:00.509930+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:45:32.033368+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:46:02.730605+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:46:35.737329+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:47:06.637951+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:47:38.861197+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:48:11.654523+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:48:44.363774+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:49:17.976894+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:49:53.389055+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:53:02.154677+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T11:53:02.167218+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "31cd72a467fd7c46862d2a5891e0d9b29638388e", "max_workers": 1, "model_default": "stepfun/step-3.5-flash:free", "model_code": "stepfun/step-3.5-flash:free", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-27T11:53:02.925979+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "31cd72a467fd7c46862d2a5891e0d9b29638388e", "observed_sha": "31cd72a467fd7c46862d2a5891e0d9b29638388e", "worker_pid": 23096}
