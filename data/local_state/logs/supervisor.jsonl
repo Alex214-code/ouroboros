@@ -245,3 +245,33 @@
 {"ts": "2026-02-27T11:53:02.154677+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-27T11:53:02.167218+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "31cd72a467fd7c46862d2a5891e0d9b29638388e", "max_workers": 1, "model_default": "stepfun/step-3.5-flash:free", "model_code": "stepfun/step-3.5-flash:free", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
 {"ts": "2026-02-27T11:53:02.925979+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "31cd72a467fd7c46862d2a5891e0d9b29638388e", "observed_sha": "31cd72a467fd7c46862d2a5891e0d9b29638388e", "worker_pid": 23096}
+{"ts": "2026-02-27T11:53:07.899858+00:00", "type": "auto_resume_triggered"}
+{"ts": "2026-02-27T11:53:10.186074+00:00", "type": "main_loop_heartbeat", "offset": 33823932, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:53:40.359118+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:54:11.518264+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:54:42.712985+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:55:13.077936+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:55:43.578663+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:56:14.862882+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:56:44.918174+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:57:16.834575+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:57:48.220563+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:58:18.988954+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:58:43.017059+00:00", "type": "task_metrics_event", "task_id": "25db6786", "task_type": "task", "duration_sec": 331.978, "tool_calls": 21, "tool_errors": 0}
+{"ts": "2026-02-27T11:58:54.057415+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:59:28.529951+00:00", "type": "main_loop_heartbeat", "offset": 33823933, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:00:00.642824+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:00:06.842517+00:00", "type": "task_metrics_event", "task_id": "2bc22f4f", "task_type": "task", "duration_sec": 14.096, "tool_calls": 0, "tool_errors": 0}
+{"ts": "2026-02-27T12:00:32.920307+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:01:03.731178+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:01:34.440290+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:02:05.182319+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:02:36.191878+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:03:07.470823+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:03:38.312311+00:00", "type": "main_loop_heartbeat", "offset": 33823934, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:04:11.261944+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:04:33.855969+00:00", "type": "task_metrics_event", "task_id": "cffc817c", "task_type": "task", "duration_sec": 19.357, "tool_calls": 0, "tool_errors": 0}
+{"ts": "2026-02-27T12:04:44.097714+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:05:14.953014+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:05:45.628549+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:06:16.312119+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
