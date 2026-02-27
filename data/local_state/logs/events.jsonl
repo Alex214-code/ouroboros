@@ -513,3 +513,4 @@
 {"ts": "2026-02-27T14:27:56.316051+00:00", "type": "llm_round", "task_id": "d8344343", "round": 28, "model": "deepseek/deepseek-v3.2", "reasoning_effort": "medium", "prompt_tokens": 45451, "completion_tokens": 12825, "cached_tokens": 64, "cache_write_tokens": 0, "cost_usd": 0.01668244}
 {"ts": "2026-02-27T14:27:56.316051+00:00", "type": "llm_usage", "task_id": "d8344343", "category": "task", "model": "deepseek/deepseek-v3.2", "cost": 0.01668244, "prompt_tokens": 45451, "completion_tokens": 12825}
 {"ts": "2026-02-27T14:32:52.164041+00:00", "type": "worker_boot", "pid": 25172, "git_branch": "ouroboros", "git_sha": "2843d36f1c33f62f357e7a1cf2bce0cbbd835a66"}
+{"ts": "2026-02-27T14:32:53.422520+00:00", "type": "worker_boot", "pid": 13800, "git_branch": "ouroboros", "git_sha": "658a5f9dd14cb1797dbaa3b387ddc31c33d5e232"}
