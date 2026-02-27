@@ -541,7 +541,7 @@ def main():
     log.info(f"  Model: {cfg.OUROBOROS_MODEL}")
     log.info(f"  Light: {cfg.OUROBOROS_MODEL_LIGHT}")
     log.info(f"  Vision: {cfg.OUROBOROS_VISION_MODEL}")
-    log.info(f"  Backend: OpenRouter (DeepSeek V3.2 + free fallback)")
+    log.info(f"  Backend: OpenRouter (Gemini 3 Flash + free fallback)")
     log.info(f"  Workers: {cfg.MAX_WORKERS}")
     log.info(f"  Auto-push: every {cfg.AUTO_PUSH_INTERVAL_SEC}s")
     log.info("  Send any message to your Telegram bot to begin.")

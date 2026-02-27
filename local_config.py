@@ -12,9 +12,9 @@ import pathlib
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 # Модели — через OpenRouter
-# Основная: DeepSeek V3.2 ($0.25/M input, $0.38/M output, 164K context, tool use + reasoning)
-OUROBOROS_MODEL = "deepseek/deepseek-v3.2"            # основная модель (reasoning + tool use)
-OUROBOROS_MODEL_CODE = "deepseek/deepseek-v3.2"       # модель для кода
+# Основная: Gemini 3 Flash Preview ($0.50/M input, $3.00/M output, 1M context, tool use + reasoning)
+OUROBOROS_MODEL = "google/gemini-3-flash-preview"      # основная модель (reasoning + tool use)
+OUROBOROS_MODEL_CODE = "google/gemini-3-flash-preview" # модель для кода
 OUROBOROS_MODEL_LIGHT = "stepfun/step-3.5-flash:free" # лёгкая модель (бесплатная, для мелких задач)
 OUROBOROS_VISION_MODEL = "qwen/qwen3-vl-235b-a22b-thinking" # vision (free via Alibaba Cloud)
 
@@ -45,7 +45,7 @@ DATA_ROOT = REPO_DIR / "data" / "local_state"
 # ============================================================
 # Budget (OpenRouter free tier = бесплатно, но агенту нужна цифра)
 # ============================================================
-TOTAL_BUDGET = 16.79  # $16.79 deposited on OpenRouter (DeepSeek V3.2: ~$0.25/M in + $0.38/M out)
+TOTAL_BUDGET = 16.38  # OpenRouter balance (Gemini 3 Flash: $0.50/M in + $3.00/M out)
 
 # ============================================================
 # === НАСТРОЙКИ ДЛЯ CLOUD INFERENCE (OpenRouter) ===
