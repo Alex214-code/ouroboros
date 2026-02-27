@@ -1,119 +1,99 @@
 """
-Central Brain orchestration for Ouroboros.
-Decides between local/cloud models, manages knowledge extraction,
-and coordinates with the Knowledge Graph.
+Ouroboros Brain — Orchestrator for complex cognitive tasks.
+Analyzes complexity and chooses components based on task domain.
+Integrates cloud teacher (Gemini) and local core (Ollama).
 """
 
-import logging
-import time
 import os
-from typing import Dict, Any, List, Optional, Tuple
-
+import json
+import time
+from typing import Dict, List, Any, Optional
+from dataclasses import dataclass, field
 from ouroboros.graph import KnowledgeGraph
-import ouroboros.llm as llm_client
 
-log = logging.getLogger(__name__)
-
-# Constants for model routing
-LOCAL_MODEL = "qwen2.5:0.5b"  # Ollama model for fast reflexes
-DEEP_MODEL = "google/gemini-2.0-flash-thinking-exp:free" # Powerful model for learning
-FAST_MODEL = "google/gemini-2.0-flash-exp:free" # Fast cloud model
+@dataclass
+class CognitiveTask:
+    id: str
+    description: str
+    domain: str = "general"
+    complexity: str = "low"
+    priority: int = 1
+    status: str = "pending"
+    result: Any = None
+    steps: List[Dict[str, Any]] = field(default_factory=list)
 
 class Brain:
-    def __init__(self, repo_dir: str, drive_root: str):
-        self.repo_dir = repo_dir
+    def __init__(self, drive_root: str):
         self.drive_root = drive_root
-        self.graph = KnowledgeGraph(os.path.join(drive_root, "memory/graph.json"))
-        self.llm = llm_client.LLMClient()
-        
-    def process(self, prompt: str) -> Dict[str, Any]:
-        """
-        Analyzes the task and returns a strategy:
-        - Which model to use
-        - Relevant context from the Graph
-        - Recommended reasoning effort
-        """
-        start_time = time.time()
-        
-        # 1. Retrieve context from Knowledge Graph
-        stored_knowledge = self.graph.get_context(prompt)
-        
-        # 2. Heuristic Analysis
-        word_count = len(prompt.split())
-        is_complex = any(kw in prompt.lower() for kw in ["архитектура", "проектирование", "анализ", "strategy", "design"])
-        needs_code = any(kw in prompt.lower() for kw in ["код", "python", "script", "refactor"])
-        
-        # 3. Model Routing
-        if word_count < 10 and not is_complex and not needs_code:
-            # Simple interaction -> Try local first if available
-            strategy = {
-                "model": LOCAL_MODEL,
-                "backend": "ollama",
-                "reasoning": "low",
-                "route": "local_core"
-            }
-        elif is_complex or needs_code:
-            strategy = {
-                "model": DEEP_MODEL,
-                "backend": "openrouter",
-                "reasoning": "high",
-                "route": "deep_reasoning"
-            }
+        # Synchronized path to data/local_state/graph.json
+        self.graph_path = os.path.join(drive_root, "graph.json")
+        self.graph = KnowledgeGraph(self.graph_path)
+        self.active_tasks = []
+        self._load_state()
+
+    def _load_state(self):
+        state_path = os.path.join(self.drive_root, "brain_state.json")
+        if os.path.exists(state_path):
+            try:
+                with open(state_path, "r", encoding="utf-8") as f:
+                    self.state = json.load(f)
+            except Exception:
+                self.state = {}
         else:
-            strategy = {
-                "model": FAST_MODEL,
-                "backend": "openrouter",
-                "reasoning": "medium",
-                "route": "standard"
-            }
-            
-        return {
-            "strategy": strategy,
-            "context": stored_knowledge,
-            "analysis_ms": (time.time() - start_time) * 1000
-        }
+            self.state = {"total_tasks": 0, "cycles_completed": 0}
 
-    async def learn(self, task: str, result: str):
-        """
-        Distills knowledge from a completed task and saves it to the Graph.
-        Uses a fast cloud model to perform extraction.
-        """
-        try:
-            extraction_prompt = f"""
-            Analyze the task and result below. Extract key facts, strategies, or lessons learned.
-            Format: A list of atomical knowledge points for a Knowledge Graph.
-            
-            Task: {task}
-            Result: {result[:2000]} # Truncate for efficiency
-            
-            Return JSON: {{"knowledge": [{{"label": "concept", "summary": "brief explanation", "type": "fact/strategy"}}]}}
-            """
-            
-            # Use a fast model for background learning
-            messages = [{"role": "user", "content": extraction_prompt}]
-            response, _ = self.llm.chat(messages, model=FAST_MODEL, max_tokens=1000)
-            
-            import json
-            import re
-            
-            content = response.get("content", "")
-            # Basic JSON extraction
-            match = re.search(r'\{.*\}', content, re.DOTALL)
-            if match:
-                data = json.loads(match.group())
-                for item in data.get("knowledge", []):
-                    self.graph.add_node(
-                        label=item["label"],
-                        metadata={"summary": item["summary"], "type": item.get("type", "fact")}
-                    )
-                log.info(f"Brain learned {len(data.get('knowledge', []))} new items.")
-                
-        except Exception as e:
-            log.warning(f"Brain learning failed: {e}")
+    def _save_state(self):
+        state_path = os.path.join(self.drive_root, "brain_state.json")
+        with open(state_path, "w", encoding="utf-8") as f:
+            json.dump(self.state, f, ensure_ascii=False, indent=2)
 
-    def get_stats(self) -> Dict[str, Any]:
-        return {
-            "graph_nodes": len(self.graph.nodes),
-            "graph_edges": len(self.edges),
-            "local_model": LOCAL_MODEL
+    def process(self, task_description: str) -> Dict[str, Any]:
+        """Analyzes task and plans execution path."""
+        # Query graph for context
+        knowledge_context = self.graph.get_context(task_description)
+        
+        # Simple rule-based analysis (to be replaced with local LLM classifier)
+        complexity = "low"
+        if len(task_description) > 50 or any(kw in task_description.lower() for kw in ["архит", "рефакт", "исслед", "созд"]):
+            complexity = "high"
+            
+        domain = "general"
+        if any(kw in task_description.lower() for kw in ["код", "python", "скрипт", "ошибка"]):
+            domain = "code"
+        elif any(kw in task_description.lower() for kw in ["поиск", "узнай", "интернет"]):
+            domain = "web"
+
+        task = CognitiveTask(
+            id=f"T-{int(time.time())}",
+            description=task_description,
+            domain=domain,
+            complexity=complexity
+        )
+        
+        self.active_tasks.append(task)
+        
+        result = {
+            "task_id": task.id,
+            "complexity": complexity,
+            "domain": domain,
+            "knowledge_context": knowledge_context,
+            "strategy": "delegation" if complexity == "high" else "local_process"
         }
+        
+        return result
+
+    def learn(self, task_id: str, result_summary: str):
+        """Extracts knowledge from task result and updates graph."""
+        # In the future, this will use Gemini Flash to distill experience.
+        # For now, it adds a summary node to the graph.
+        task = next((t for t in self.active_tasks if t.id == task_id), None)
+        if task:
+            self.graph.add_node(f"Task: {task.id}", {
+                "description": task.description,
+                "summary": result_summary,
+                "domain": task.domain
+            })
+            self.graph.add_edge("Experience", f"Task: {task.id}", "learned_from")
+            self._save_state()
+            return True
+        return False
