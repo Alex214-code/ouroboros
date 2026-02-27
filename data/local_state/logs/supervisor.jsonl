@@ -35,3 +35,7 @@
 {"ts": "2026-02-27T08:20:51.462719+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-27T08:21:24.552212+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-27T08:21:56.190434+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:26:53.603403+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:26:53.622407+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "e4abae91dfc9e92937cb9d53f028d3376f88ecf1", "max_workers": 1, "model_default": "gpt-oss:20b", "model_code": "gpt-oss:20b", "model_light": "gpt-oss:20b", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-27T08:26:54.533656+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:26:54.887771+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "e4abae91dfc9e92937cb9d53f028d3376f88ecf1", "observed_sha": "e4abae91dfc9e92937cb9d53f028d3376f88ecf1", "worker_pid": 22200}
