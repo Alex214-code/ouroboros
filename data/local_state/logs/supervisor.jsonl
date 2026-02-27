@@ -277,3 +277,19 @@
 {"ts": "2026-02-27T12:06:16.312119+00:00", "type": "main_loop_heartbeat", "offset": 33823935, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-27T12:06:50.043848+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-27T12:07:21.660836+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:07:53.933953+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:08:10.304983+00:00", "type": "task_metrics_event", "task_id": "49401e5b", "task_type": "task", "duration_sec": 101.553, "tool_calls": 12, "tool_errors": 0}
+{"ts": "2026-02-27T12:08:25.640190+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:08:56.368334+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:09:27.326145+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:09:58.059673+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:10:28.936145+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:10:59.652949+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:11:36.426991+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:12:10.825290+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:12:45.447276+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:13:19.857194+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:13:54.238297+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:14:28.667269+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:23:33.621052+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T12:23:33.638433+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "0151ec4aff630200ff4ab92a1b9df994b774d31d", "max_workers": 1, "model_default": "deepseek/deepseek-v3.2", "model_code": "deepseek/deepseek-v3.2", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}

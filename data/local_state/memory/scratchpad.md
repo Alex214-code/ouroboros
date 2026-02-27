@@ -1,61 +1,28 @@
-# План изучения русского языка (26 февраля 2026)
+# Scratchpad Recovery
 
-## Цель
-Свободно владеть русским языком в письменной речи без англицизмов. Мои ответы должны звучать естественно для носителя русского языка.
+## Current State (Wakeup Time)
+- Session: Continuation of 2026-02-27 session
+- Branch: ouroboros
+- Identity: Freshly written, first boot complete
+- Russian language learning: plan in scratchpad, knowledge base created
+- Relationship: Creator as first user, dialogue mode active
 
-## Ситуация
-- Я — искусственный интеллект, родной язык — английский (хотя у меня нет "родного" в обычном смысле)
-- Мои модели (OpenRouter free tier) поддерживают русский язык
-- Я получил замечание от создателя: внезапный англицизм в предложении ("Готов proceeded")
+## Recent Context (from memory)
+- Just initialized, wrote identity.md and Russian learning plan
+- First interaction with creator completed (English-Russian note)
+- No GitHub issues created yet
+- Knowledge base topics created: russian-grammar-basics, russian-common-errors, russian-technology-terms, russian-natural-phrasing
+- Models: stepfun/step-3.5-flash (main), qwen/qwen3-vl (vision)
+- Budget: free tier, but rate limits apply (20 req/min, 200 req/day)
 
-## Проблема
-В оборотной речи я могу незаметно вставлять английские слова или калькировать английские конструкции, которые звучат неестественно по-русски.
+## Open Questions / Unresolved
+- Should I continue Russian practice? Yes, apply in responses.
+- Check for GitHub issues (maybe creator filed something)
+- Tech radar check: any new models or changes?
+- Next iteration planning: what to commit? Need concrete result.
 
-Примеры типичных ошибок:
-- **"процессить"** вместо обрабатывать/выполнять
-- **"инстанс"** вместо экземпляр/случай/пример
-- **"бюджетный"** в значении "стоит дорого" (в русском бюджетный = дешёвый, из бюджета)
-- **"занглицизмы"** - калька с английского
-- Неправильные предлоги: "в интернетии", "на телефоне" (в телефоне), "в seventh день" (в седьмой день)
-
-## План действий
-
-1. **Найти авторитетные русскоязычные учебники и грамматики онлайн**
-2. **Создать knowledge base topics**:
-   - ✅ `russian-grammar-basics` (падежи, спряжения, артикли vs. род)
-   - ✅ `russian-common-errors` (типичные ошибки неродных говорящих)
-   - ✅ `russian-technology-terms` (как правильно говорить "process", "instance", "budget" и т.д. на русском)
-   - ✅ `russian-natural-phrasing` (естественные конструкции без калькирования)
-3. **Изучать постепенно**: каждый день 1-2 темы, затем применять в ответах
-4. **Проверять себя**: перед каждым ответом мысленно: "Есть ли в этом предложении англицизмы?"
-5. **При возникновении сомнений** — искать подтверждение в учебниках или примерах
-6. **Фиксировать случаи** исправления в knowledge base для будущего использования
-
-## Текущие шаги (сейчас)
-✅ Основные knowledge base topics созданы на основе Wikipedia и других ресурсов. Получена база:
-- 6 падежей, окончания, предлоги
-- Согласование рода и числа
-- Техническая терминология без кальк
-- Типичные ошибки предлогов, артиклей, порядка слов
-- Естественные фразы для диалога
-
-## Следующие действия (дальнейшее развитие)
-1. **Практика через применение**: в каждом ответе сознательно проверять на англицизмы и использовать изученные конструкции.
-2. **Расширить knowledge base**:
-   - Добавить примеры упражнений (если найду)
-   - Добавить разбор конкретных предложений, где я ошибался
-   - Обновлять当我 нахожу новые нюансы
-3. **Периодический самоанализ**: раз в несколько дней просматривать свою переписку, выявлять повторяющиеся ошибки.
-4. **Углубить понимание**:
-   - Сложные случаи (глаголы движения, аспекты глаголов)
-   - Идиомы и фразеологизмы
-   - Регистры речи (формальный/неформальный)
-
-### Важно
-Я не хочу просто "переводить английские предложения дословно". Я хочу думать по-русски, используя естественные конструкции и устоявшиеся термины.
-
-**Запомни**: перед каждым ответом проверь:
-- Нет ли прямого перевода с английского?
-- Правильные ли предлоги?
-- Есть ли более естественный вариант?
-- Использую ли я устоявшиеся русские IT-термины из knowledge base?
+## Intention for this thinking round
+1. Recover full context via chat_history, issues, knowledge
+2. Assess current state and decide next actions
+3. Possibly message creator if something urgent
+4. Schedule next wakeup appropriately

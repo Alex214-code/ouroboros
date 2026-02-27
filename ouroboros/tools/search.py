@@ -13,14 +13,14 @@ log = logging.getLogger(__name__)
 
 
 def _web_search_ddg(query: str, max_results: int = 5) -> str:
-    """Search via DuckDuckGo — free, no API key needed."""
+    """Search via DDGS (DuckDuckGo / metasearch) — free, no API key needed."""
     try:
-        from duckduckgo_search import DDGS
+        from ddgs import DDGS
     except ImportError:
         import subprocess, sys
-        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "duckduckgo-search"],
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "ddgs"],
                        check=True)
-        from duckduckgo_search import DDGS
+        from ddgs import DDGS
 
     try:
         with DDGS() as ddgs:
@@ -80,19 +80,21 @@ def _web_search_openai(query: str) -> str:
 
 
 def _web_search(ctx: ToolContext, query: str) -> str:
-    """Web search: tries OpenAI first (if key available), falls back to DuckDuckGo."""
-    # If running locally or no OpenAI key, use DuckDuckGo directly
-    if os.environ.get("OUROBOROS_LLM_BACKEND") == "ollama":
+    """Web search: tries OpenAI first (if key available), falls back to DDGS."""
+    backend = os.environ.get("OUROBOROS_LLM_BACKEND", "").lower()
+
+    # For local (ollama) and openrouter backends, use DDGS directly
+    if backend in ("ollama", "openrouter"):
         return _web_search_ddg(query)
 
-    # Try OpenAI first
+    # Try OpenAI first (only for anthropic/openai backends)
     api_key = os.environ.get("OPENAI_API_KEY", "")
     if api_key:
         result = _web_search_openai(query)
         if result:
             return result
 
-    # Fallback to DuckDuckGo
+    # Fallback to DDGS
     return _web_search_ddg(query)
 
 
