@@ -5,6 +5,7 @@ Follows Principle 5 (Minimalism).
 """
 
 import logging
+import json
 from typing import Dict, List, Any, Optional
 from ouroboros.graph import KnowledgeGraph
 
@@ -15,16 +16,26 @@ class Brain:
         self.llm = llm
         self.memory = memory
         self.graph = KnowledgeGraph()
+        # Teacher: Wisdom and Learning
+        # Local Core: Reflexes and Speed (i7-10510U optimized)
+        # Light: Fast Extraction/Classification
         self.components = {
-            "core": "stepfun/step-3.5-flash:free",
-            "strategist": "deepseek/deepseek-chat",
-            "light": "google/gemini-2.5-flash-lite-preview-02-10:free"
+            "teacher": "google/gemini-2.0-flash-thinking-exp-1219:free",
+            "local_core": "ollama/qwen2.5:0.5b",
+            "light": "google/gemini-2.0-flash-exp:free"
         }
         
     def analyze_task(self, task_description: str) -> Dict[str, Any]:
         """Analyzes task complexity and chooses optimal model."""
         desc_lower = task_description.lower()
-        is_complex = len(task_description) > 500 or any(kw in desc_lower for kw in ["design", "architect", "complex", "research", "refactor"])
+        
+        # Criteria for using "Teacher" model (Cloud)
+        is_complex = len(task_description) > 500 or any(
+            kw in desc_lower for kw in [
+                "design", "architect", "complex", "research", 
+                "refactor", "philosophy", "evolution", "plan"
+            ]
+        )
         
         domain = "general"
         if any(kw in desc_lower for kw in ["code", "python", "script", "git"]):
@@ -32,10 +43,14 @@ class Brain:
         elif any(kw in desc_lower for kw in ["math", "logic", "calculate"]):
             domain = "logic"
             
+        # If it's a very short greeting or simple command, use local_core (0.5b)
+        use_local = len(task_description) < 100 and not is_complex
+            
         return {
             "complexity": "high" if is_complex else "low",
             "domain": domain,
-            "recommended_model": self.components["strategist"] if is_complex else self.components["core"]
+            "recommended_model": self.components["teacher"] if is_complex else 
+                                (self.components["local_core"] if use_local else self.components["light"])
         }
 
     def process(self, task_description: str) -> Optional[str]:
@@ -64,6 +79,7 @@ class Brain:
 
         prompt = (
             "Extract 1-3 key factual insights or lessons learned from the following task result. "
+            "Focus on architecture, logic, or facts that should be remembered for a long time. "
             "Format: Precise label (1-3 words) and a short summary.\n\n"
             f"TASK: {task}\n\nRESULT: {result}\n\nINSIGHTS:"
         )
@@ -73,10 +89,11 @@ class Brain:
             extracted = self.llm.generate(prompt, model=self.components["light"])
             if extracted and ":" in extracted:
                 log.info("[Brain] Extracted new knowledge for Graph")
-                # Simple parsing of "Label: Summary"
+                # Simple parsing of "Label: Summary" or "- Label: Summary"
                 for line in extracted.split('\n'):
+                    line = line.strip().strip('- ')
                     if ':' in line:
                         label, summary = line.split(':', 1)
-                        self.graph.add_node(label.strip().strip('- '), {"summary": summary.strip(), "origin_task": task[:100]})
+                        self.graph.add_node(label.strip(), {"summary": summary.strip(), "origin_task": task[:100]})
         except Exception as e:
             log.warning(f"[Brain] Learning failed: {e}")
