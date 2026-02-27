@@ -127,8 +127,8 @@ class Brain:
             content = resp_msg.get("content", "")
             
             # Robust JSON extraction
-            json_str = content
             # Remove markdown formatting if present
+            json_str = content
             if "```json" in content:
                 json_str = content.split("```json")[1].split("```")[0].strip()
             elif "```" in content:
@@ -145,11 +145,15 @@ class Brain:
                         if unit.get("relation") and unit.get("target"):
                             self.graph.add_edge(node_id, unit.get("target"), unit.get("relationship", unit.get("relation")))
                 
-                self.state["knowledge_nodes"] += len(knowledge_units)
+                num_units = len(knowledge_units)
+                self.state["knowledge_nodes"] += num_units
                 self.state["total_tasks"] += 1
                 self._save_state()
-                log.info(f"Brain: Successfully distilled {len(knowledge_nodes)} knowledge units.")
+                log.info(f"Brain: Successfully distilled {num_units} knowledge units.")
                 return True
+            else:
+                log.info("Brain: No knowledge units found in response.")
+                return False
         except Exception as e:
             log.warning(f"Brain: Knowledge distillation failed: {e}")
             return False
