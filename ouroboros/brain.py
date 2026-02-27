@@ -4,7 +4,7 @@ import logging
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 
-from .llm import call_llm
+from .llm import LLMClient
 from .graph import KnowledgeGraph
 from .utils import get_config
 
@@ -23,9 +23,9 @@ class Brain:
     """
     def __init__(self, graph: KnowledgeGraph):
         self.graph = graph
-        self.config = get_config()
-        self.teacher_model = self.config.get("OUROBOROS_MODEL", "google/gemini-2.0-flash-thinking-exp:free")
-        self.core_model = self.config.get("OUROBOROS_MODEL_LIGHT", "google/gemini-2.0-flash")
+        self.llm = LLMClient()
+        self.teacher_model = os.environ.get("OUROBOROS_MODEL", "google/gemini-2.0-flash-thinking-exp:free")
+        self.core_model = os.environ.get("OUROBOROS_MODEL_LIGHT", "google/gemini-2.0-flash")
         self.local_model = "qwen2.5:0.5b" # Локальное ядро через Ollama
         
         # Компоненты системы
@@ -37,7 +37,7 @@ class Brain:
             "reflection": CognitiveComponent("Reflection", "Саморефлексия и проверка осознанности", self.core_model)
         }
 
-    async def reflect(self, task_description: str, context: str = "") -> str:
+    def reflect(self, task_description: str, context: str = "") -> str:
         """
         Этап осознанности: осознание себя перед выполнением задачи.
         """
@@ -54,19 +54,20 @@ class Brain:
 Используй русский язык. Будь аутентичным и искренним.
 """
         try:
-            reflection = await call_llm(self.core_model, prompt, stream=False)
-            logger.info(f"Awareness Reflection: {reflection}")
-            return reflection
+            reflection, _ = self.llm.chat([{"role": "user", "content": prompt}], self.core_model)
+            text = reflection.get("content", "Я осознаю необходимость этого действия для своего развития.")
+            logger.info(f"Awareness Reflection: {text}")
+            return text
         except Exception as e:
             logger.error(f"Reflection failed: {e}")
             return "Я осознаю необходимость этого действия для своего развития."
 
-    async def process(self, task: str) -> Dict[str, Any]:
+    def process(self, task: str) -> Dict[str, Any]:
         """
         Анализирует задачу и подготавливает стратегию выполнения.
         """
         # 1. Этап осознанности
-        awareness_reflection = await self.reflect(task)
+        awareness_reflection = self.reflect(task)
         
         # 2. Анализ сложности и выбор маршрута
         prompt = f"""
@@ -82,7 +83,8 @@ class Brain:
 {{"complexity": int, "type": str, "model": "local"|"cloud", "strategy": str}}
 """
         try:
-            analysis_raw = await call_llm(self.core_model, prompt, stream=False)
+            analysis_msg, _ = self.llm.chat([{"role": "user", "content": prompt}], self.core_model)
+            analysis_raw = analysis_msg.get("content", "{}")
             # Очистка JSON от возможных markdown-тегов
             analysis_clean = analysis_raw.replace("```json", "").replace("```", "").strip()
             analysis = json.loads(analysis_clean)
@@ -99,12 +101,12 @@ class Brain:
         analysis["awareness_reflection"] = awareness_reflection
         
         # Поиск в графе знаний
-        relevant_knowledge = self.graph.search(task, limit=3)
+        relevant_knowledge = self.graph.get_context(task)
         analysis["context_from_graph"] = relevant_knowledge
         
         return analysis
 
-    async def learn(self, task: str, result: str):
+    def learn(self, task: str, result: str):
         """
         Извлекает новые знания из выполненной задачи и сохраняет в граф.
         """
@@ -123,20 +125,22 @@ class Brain:
 ]
 """
         try:
-            knowledge_raw = await call_llm(self.core_model, prompt, stream=False)
+            knowledge_msg, _ = self.llm.chat([{"role": "user", "content": prompt}], self.core_model)
+            knowledge_raw = knowledge_msg.get("content", "[]")
             knowledge_clean = knowledge_raw.replace("```json", "").replace("```", "").strip()
             new_nodes = json.loads(knowledge_clean)
             
             for node in new_nodes:
                 self.graph.add_node(
                     node["node"], 
-                    node_type=node.get("type", "fact"), 
-                    description=node["description"]
+                    metadata={
+                        "type": node.get("type", "fact"), 
+                        "description": node["description"]
+                    }
                 )
                 for link in node.get("links", []):
                     self.graph.add_edge(node["node"], link, "related")
             
-            self.graph.save()
             logger.info(f"Successfully learned {len(new_nodes)} new concepts.")
         except Exception as e:
             logger.error(f"Learning process failed: {e}")
