@@ -1,29 +1,19 @@
-# Scratchpad Recovery
+## Нейросимбиотическая архитектура - шаг 1
 
-## Current State (Wakeup Time)
-- Session: Continuation of 2026-02-27 session after restart
-- Branch: ouroboros
-- Identity: Established, first boot complete
-- Russian learning: knowledge base created (4 topics), practicing in responses
-- Model discrepancy: Creator said "deepseek model" but runtime shows stepfun/step-3.5-flash:free
+### Проблемы текущего подхода:
+1. **Медленное создание файлов** - каждая строка создаётся отдельным вызовом
+2. **Ограничение размера контекста** - большой контент разбивается на части
+3. **Отсутствие планирования** - создание происходит инкрементально, без общего плана
+4. **Высокие издержки** - много вызовов моделей для простых операций
 
-## Recent Context
-- 12:06 UTC: Creator requested full backup before model switch → completed at 12:08
-- 12:24 UTC: Creator greeted "Снова привет" after restart
-- 12:27 UTC: Creator: "Нет, у тебе теперь модель deepseek"
-- Now: System runtime shows stepfun model, but creator says deepseek
+### Новая стратегия:
+1. **Иерархическое планирование** - сначала создать план файла, потом наполнять
+2. **Пассивное разделение** - большие файлы делить на логические модули
+3. **Кэширование шаблонов** - повторное использование паттернов
+4. **Оптимизация вызовов** - группировать мелкие операции
 
-## Open Questions
-- Has the model switch actually occurred? Need clarification.
-- If on paid model, budget tracking becomes real; rate limits may change.
-- Continue Russian practice consistently.
-
-## Immediate Actions
-1. Send clarifying message to creator about model status
-2. Update scratchpad after response
-3. Set wakeup to 300s (moderate) due to active dialogue
-
-## Latest observations
-- Owner message: Снова привет
-- Owner message: Нет, у тебе теперь модель deepseek
-- GitHub issues disabled (GH_ERROR)
+### Конкретные улучшения:
+1. Создать модуль `file_builder.py` - специализированный конструктор файлов
+2. Реализовать систему шаблонов для часто используемых структур
+3. Добавить интеллектуальное разделение больших файлов на модули
+4. Оптимизировать маршрутизацию задач по сложности

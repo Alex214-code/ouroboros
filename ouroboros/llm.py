@@ -220,8 +220,10 @@ class LLMClient:
                     "require_parameters": True,
                 }
             elif model.startswith("deepseek/"):
-                # DeepSeek V3.2: handles reasoning natively, no OpenRouter reasoning param needed
-                pass
+                # DeepSeek V3.2: disable reasoning for agentic tool-use (much faster).
+                # Reasoning is ON by default and generates thousands of hidden tokens.
+                # For tool loops, speed matters more than deep reasoning.
+                extra_body["reasoning"] = {"enabled": False}
             else:
                 # Other models: standard reasoning config
                 extra_body["reasoning"] = {"effort": effort, "exclude": True}
