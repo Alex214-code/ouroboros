@@ -1,0 +1,37 @@
+{"ts": "2026-02-27T08:03:05.510344+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:03:05.532346+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "unknown", "max_workers": 1, "model_default": "gpt-oss:20b", "model_code": "gpt-oss:20b", "model_light": "gpt-oss:20b", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-27T08:03:10.459359+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:03:10.531346+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:03:35.862364+00:00", "type": "worker_sha_verify", "ok": false, "expected_sha": "unknown", "observed_sha": "", "worker_pid": 18104}
+{"ts": "2026-02-27T08:03:42.170105+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:04:14.227780+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:04:38.343431+00:00", "type": "worker_dead_detected", "worker_id": 0, "exitcode": 1, "busy_task_id": null}
+{"ts": "2026-02-27T08:04:43.927562+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:04:46.237292+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:05:18.138782+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:05:49.966928+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:06:10.010927+00:00", "type": "worker_dead_detected", "worker_id": 0, "exitcode": 1, "busy_task_id": null}
+{"ts": "2026-02-27T08:06:11.140537+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:06:22.077280+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:06:54.123696+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:07:26.403509+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:07:42.636035+00:00", "type": "worker_dead_detected", "worker_id": 0, "exitcode": 1, "busy_task_id": null}
+{"ts": "2026-02-27T08:07:43.761193+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:07:58.643243+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:08:29.591335+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:09:02.596364+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:09:14.174534+00:00", "type": "worker_dead_detected", "worker_id": 0, "exitcode": 1, "busy_task_id": null}
+{"ts": "2026-02-27T08:09:17.340813+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:09:35.851672+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:10:08.808394+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:10:41.567731+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 0, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:10:53.749590+00:00", "type": "worker_dead_detected", "worker_id": 0, "exitcode": 1, "busy_task_id": null}
+{"ts": "2026-02-27T08:11:15.166507+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:11:47.823037+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:20:19.470465+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T08:20:19.480678+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "unknown", "max_workers": 1, "model_default": "gpt-oss:20b", "model_code": "gpt-oss:20b", "model_light": "gpt-oss:20b", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-27T08:20:20.522572+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:20:20.747204+00:00", "type": "worker_sha_verify", "ok": false, "expected_sha": "unknown", "observed_sha": "", "worker_pid": 25584}
+{"ts": "2026-02-27T08:20:51.462719+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:21:24.552212+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T08:21:56.190434+00:00", "type": "main_loop_heartbeat", "offset": 0, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}

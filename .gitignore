@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+ouroboros_data/
+*.log
+INIT_GIT.bat
