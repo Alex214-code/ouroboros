@@ -7,6 +7,7 @@ import os
 import json
 import time
 import logging
+import re
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 
@@ -104,7 +105,7 @@ class Brain:
         Original Task: {prompt}
         Result: {result}
         
-        Format your response as a JSON list of objects:
+        Format your response as a JSON array of objects:
         [
           {{"node": "Concept Name", "type": "Concept/Fact/Strategy", "relation": "Related to", "target": "Existing Concept"}},
           ...
@@ -112,6 +113,7 @@ class Brain:
         
         Focus on technical patterns, architectural decisions, and unique insights. 
         Be concise. If no significant new knowledge is found, return an empty list [].
+        ONLY return the JSON.
         """
         
         try:
@@ -120,24 +122,33 @@ class Brain:
             msgs = [{"role": "system", "content": "You are Ouroboros Knowledge Distiller. Extract clean, modular facts for a Knowledge Graph."},
                     {"role": "user", "content": distillation_prompt}]
             
-            response = self.llm.chat(msgs, model=model_light)
+            # OpenAI API returns (message_dict, usage_dict)
+            resp_msg, usage = self.llm.chat(msgs, model=model_light)
+            content = resp_msg.get("content", "")
             
-            # Simple JSON extraction from response
-            import re
-            json_match = re.search(r'\[.*\]', response, re.DOTALL)
-            if json_match:
-                knowledge_units = json.loads(json_match.group(0))
+            # Robust JSON extraction
+            json_str = content
+            # Remove markdown formatting if present
+            if "```json" in content:
+                json_str = content.split("```json")[1].split("```")[0].strip()
+            elif "```" in content:
+                json_str = content.split("```")[1].split("```")[0].strip()
+            
+            # Find the actual array
+            match = re.search(r'\[.*\]', json_str, re.DOTALL)
+            if match:
+                knowledge_units = json.loads(match.group(0))
                 for unit in knowledge_units:
                     node_id = unit.get("node")
                     if node_id:
                         self.graph.add_node(node_id, {"type": unit.get("type"), "task_ref": prompt[:50]})
                         if unit.get("relation") and unit.get("target"):
-                            self.graph.add_edge(node_id, unit.get("target"), unit.get("relation"))
+                            self.graph.add_edge(node_id, unit.get("target"), unit.get("relationship", unit.get("relation")))
                 
                 self.state["knowledge_nodes"] += len(knowledge_units)
                 self.state["total_tasks"] += 1
                 self._save_state()
-                log.info(f"Brain: Successfully distilled {len(knowledge_units)} knowledge units.")
+                log.info(f"Brain: Successfully distilled {len(knowledge_nodes)} knowledge units.")
                 return True
         except Exception as e:
             log.warning(f"Brain: Knowledge distillation failed: {e}")
