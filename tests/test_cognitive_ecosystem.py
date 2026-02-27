@@ -45,9 +45,9 @@ def test_basic_functionality():
     
     # Проверяем, что для разных задач выбираются разные компоненты
     if len(result1.get('components_used', [])) < len(result2.get('components_used', [])):
-        print("✓ Экосистема правильно распределяет задачи по сложности")
+        print("[OK] Экосистема правильно распределяет задачи по сложности")
     else:
-        print("✗ Экосистема не различает сложность задач")
+        print("[WARNING] Экосистема не различает сложность задач")
     
     return True
 
@@ -92,9 +92,9 @@ if __name__ == "__main__":
         test_basic_functionality()
         print("\n" + "=" * 50)
         test_task_analysis()
-        print("\n✓ Все тесты пройдены успешно!")
+        print("\n[OK] Все тесты пройдены успешно!")
     except Exception as e:
-        print(f"\n✗ Ошибка при тестировании: {e}")
+        print(f"\n[ERROR] Ошибка при тестировании: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)
