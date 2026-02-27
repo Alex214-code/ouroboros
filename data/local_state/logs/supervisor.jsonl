@@ -293,3 +293,4 @@
 {"ts": "2026-02-27T12:14:28.667269+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-27T12:23:33.621052+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-27T12:23:33.638433+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "0151ec4aff630200ff4ab92a1b9df994b774d31d", "max_workers": 1, "model_default": "deepseek/deepseek-v3.2", "model_code": "deepseek/deepseek-v3.2", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-27T12:23:34.389459+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "0151ec4aff630200ff4ab92a1b9df994b774d31d", "observed_sha": "0151ec4aff630200ff4ab92a1b9df994b774d31d", "worker_pid": 3180}
