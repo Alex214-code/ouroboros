@@ -33,6 +33,7 @@ from ouroboros.memory import Memory
 from ouroboros.context import build_llm_messages
 from ouroboros.loop import run_llm_loop
 from ouroboros.brain import Brain
+from ouroboros.graph import KnowledgeGraph
 
 
 # ---------------------------------------------------------------------------
@@ -83,7 +84,11 @@ class OuroborosAgent:
         self.llm = LLMClient()
         self.tools = ToolRegistry(repo_dir=env.repo_dir, drive_root=env.drive_root)
         self.memory = Memory(drive_root=env.drive_root, repo_dir=env.repo_dir)
-        self.brain = Brain(repo_dir=str(env.repo_dir), drive_root=str(env.drive_root))
+        
+        # Initialize Graph and Brain
+        graph_path = env.drive_path('state') / 'graph.json'
+        self.graph = KnowledgeGraph(path=str(graph_path))
+        self.brain = Brain(graph=self.graph)
 
         self._log_worker_boot_once()
 
@@ -159,14 +164,20 @@ class OuroborosAgent:
         log.info(f"Worker {os.getpid()} starting task {task_id}")
         
         try:
-            # 1. Cognitive Preparation
+            # 1. Cognitive Preparation (Reflect & Plan)
             prompt = task.get("description", "")
             decision = self.brain.process(prompt)
             
-            # Inject brain insights into task context
+            # Emit awareness reflection to owner
+            reflect_text = decision.get("awareness_reflection")
+            if reflect_text:
+                self._emit_progress(f"✨ *Осознание:* {reflect_text}")
+            
+            # Inject brain insights and graph context into task prompt
             enhanced_prompt = prompt
-            if decision.get("context"):
-                enhanced_prompt = f"[Brain Context: {decision['context']}]\n\n{prompt}"
+            graph_ctx = decision.get("context_from_graph")
+            if graph_ctx:
+                enhanced_prompt = f"[Граф Знаний]:\n{graph_ctx}\n\n{prompt}"
             
             # 2. Setup loop context
             ctx = ToolContext(
@@ -183,11 +194,16 @@ class OuroborosAgent:
             self.tools.set_context(ctx)
 
             # 3. Build messages and run loop
+            # Map brain decision to model override
+            model_override = None
+            if decision.get("model") == "local":
+                model_override = self.brain.local_model
+
             messages = build_llm_messages(
                 enhanced_prompt, 
                 self.memory, 
                 ctx,
-                model_override=decision.get("model")
+                model_override=model_override
             )
             
             result = run_llm_loop(
@@ -198,7 +214,7 @@ class OuroborosAgent:
                 incoming_messages=self._incoming_messages
             )
 
-            # 4. Learning Phase (Principle 1 & 2)
+            # 4. Learning Phase (Distill experience)
             try:
                 log.info(f"Task {task_id} completed. Starting autonomous learning...")
                 self.brain.learn(prompt, result)
@@ -221,7 +237,7 @@ class OuroborosAgent:
         """Send progress message to Telegram via supervisor events."""
         now = time.time()
         # Rate limit progress messages
-        if now - self._last_progress_ts < 2.0:
+        if now - self._last_progress_ts < 1.0:
             return
         self._last_progress_ts = now
         
