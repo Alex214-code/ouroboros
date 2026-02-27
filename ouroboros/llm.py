@@ -207,17 +207,27 @@ class LLMClient:
             # gpt-oss supports reasoning via system prompt "Reasoning: <level>"
             pass
         else:
-            # OpenRouter: full extra_body with reasoning + provider pinning
-            extra_body: Dict[str, Any] = {
-                "reasoning": {"effort": effort, "exclude": True},
-            }
+            # OpenRouter: extra_body with reasoning + provider pinning
+            extra_body: Dict[str, Any] = {}
+
+            # Reasoning config: only for models that benefit from it
+            # DeepSeek V3.2 handles reasoning natively; exclude=False to keep content intact
             if model.startswith("anthropic/"):
+                extra_body["reasoning"] = {"effort": effort, "exclude": True}
                 extra_body["provider"] = {
                     "order": ["Anthropic"],
                     "allow_fallbacks": False,
                     "require_parameters": True,
                 }
-            kwargs["extra_body"] = extra_body
+            elif model.startswith("deepseek/"):
+                # DeepSeek V3.2: handles reasoning natively, no OpenRouter reasoning param needed
+                pass
+            else:
+                # Other models: standard reasoning config
+                extra_body["reasoning"] = {"effort": effort, "exclude": True}
+
+            if extra_body:
+                kwargs["extra_body"] = extra_body
 
         if tools:
             if self._backend == "ollama":

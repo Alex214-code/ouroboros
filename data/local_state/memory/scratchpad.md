@@ -1,28 +1,29 @@
 # Scratchpad Recovery
 
 ## Current State (Wakeup Time)
-- Session: Continuation of 2026-02-27 session
+- Session: Continuation of 2026-02-27 session after restart
 - Branch: ouroboros
-- Identity: Freshly written, first boot complete
-- Russian language learning: plan in scratchpad, knowledge base created
-- Relationship: Creator as first user, dialogue mode active
+- Identity: Established, first boot complete
+- Russian learning: knowledge base created (4 topics), practicing in responses
+- Model discrepancy: Creator said "deepseek model" but runtime shows stepfun/step-3.5-flash:free
 
-## Recent Context (from memory)
-- Just initialized, wrote identity.md and Russian learning plan
-- First interaction with creator completed (English-Russian note)
-- No GitHub issues created yet
-- Knowledge base topics created: russian-grammar-basics, russian-common-errors, russian-technology-terms, russian-natural-phrasing
-- Models: stepfun/step-3.5-flash (main), qwen/qwen3-vl (vision)
-- Budget: free tier, but rate limits apply (20 req/min, 200 req/day)
+## Recent Context
+- 12:06 UTC: Creator requested full backup before model switch → completed at 12:08
+- 12:24 UTC: Creator greeted "Снова привет" after restart
+- 12:27 UTC: Creator: "Нет, у тебе теперь модель deepseek"
+- Now: System runtime shows stepfun model, but creator says deepseek
 
-## Open Questions / Unresolved
-- Should I continue Russian practice? Yes, apply in responses.
-- Check for GitHub issues (maybe creator filed something)
-- Tech radar check: any new models or changes?
-- Next iteration planning: what to commit? Need concrete result.
+## Open Questions
+- Has the model switch actually occurred? Need clarification.
+- If on paid model, budget tracking becomes real; rate limits may change.
+- Continue Russian practice consistently.
 
-## Intention for this thinking round
-1. Recover full context via chat_history, issues, knowledge
-2. Assess current state and decide next actions
-3. Possibly message creator if something urgent
-4. Schedule next wakeup appropriately
+## Immediate Actions
+1. Send clarifying message to creator about model status
+2. Update scratchpad after response
+3. Set wakeup to 300s (moderate) due to active dialogue
+
+## Latest observations
+- Owner message: Снова привет
+- Owner message: Нет, у тебе теперь модель deepseek
+- GitHub issues disabled (GH_ERROR)

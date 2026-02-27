@@ -294,3 +294,23 @@
 {"ts": "2026-02-27T12:23:33.621052+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-27T12:23:33.638433+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "0151ec4aff630200ff4ab92a1b9df994b774d31d", "max_workers": 1, "model_default": "deepseek/deepseek-v3.2", "model_code": "deepseek/deepseek-v3.2", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
 {"ts": "2026-02-27T12:23:34.389459+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "0151ec4aff630200ff4ab92a1b9df994b774d31d", "observed_sha": "0151ec4aff630200ff4ab92a1b9df994b774d31d", "worker_pid": 3180}
+{"ts": "2026-02-27T12:23:39.395143+00:00", "type": "auto_resume_triggered"}
+{"ts": "2026-02-27T12:23:41.311671+00:00", "type": "main_loop_heartbeat", "offset": 33823936, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:24:13.357312+00:00", "type": "main_loop_heartbeat", "offset": 33823937, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:24:44.155444+00:00", "type": "main_loop_heartbeat", "offset": 33823937, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:25:15.528660+00:00", "type": "main_loop_heartbeat", "offset": 33823937, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:25:46.241262+00:00", "type": "main_loop_heartbeat", "offset": 33823937, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:26:16.954878+00:00", "type": "main_loop_heartbeat", "offset": 33823937, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:26:47.776955+00:00", "type": "main_loop_heartbeat", "offset": 33823937, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:27:20.447633+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:27:51.089821+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:28:22.854420+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:28:53.754188+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:29:25.551547+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:29:57.336257+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:30:28.473092+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:30:59.770467+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:31:31.346987+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:32:03.411055+00:00", "type": "main_loop_heartbeat", "offset": 33823938, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T12:39:36.913375+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T12:39:36.923504+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "53342eed3b1d8ed06cbd3f82d4c46cdfd990d06f", "max_workers": 1, "model_default": "deepseek/deepseek-v3.2", "model_code": "deepseek/deepseek-v3.2", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
