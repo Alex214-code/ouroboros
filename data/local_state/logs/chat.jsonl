@@ -9,3 +9,4 @@
 {"ts": "2026-02-27T09:48:40.609493+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "in", "chat_id": 723642564, "user_id": 723642564, "text": "Привет"}
 {"ts": "2026-02-27T10:03:23.932912+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "out", "chat_id": 723642564, "user_id": 723642564, "text": "Task running for 900s, last progress 900s ago."}
 {"ts": "2026-02-27T10:56:56.239438+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "in", "chat_id": 723642564, "user_id": 723642564, "text": "Привет"}
+{"ts": "2026-02-27T11:34:53.560164+00:00", "session_id": "461a66f0a28f4c54a5ff6ff279cd5d06", "direction": "out", "chat_id": 723642564, "user_id": 723642564, "text": "WARNING: Failed to get a response from the model after 3 attempts. Fallback model (google/gemini-2.5-pro-preview) also returned no response."}

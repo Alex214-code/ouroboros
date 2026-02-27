@@ -205,3 +205,11 @@
 {"ts": "2026-02-27T11:34:33.108297+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-27T11:34:33.124534+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "b4d0309e3fb138a4f9ca3788e913327a9d190bd8", "max_workers": 1, "model_default": "stepfun/step-3.5-flash:free", "model_code": "stepfun/step-3.5-flash:free", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
 {"ts": "2026-02-27T11:34:34.135003+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "b4d0309e3fb138a4f9ca3788e913327a9d190bd8", "observed_sha": "b4d0309e3fb138a4f9ca3788e913327a9d190bd8", "worker_pid": 28260}
+{"ts": "2026-02-27T11:34:36.216004+00:00", "type": "auto_resume_triggered"}
+{"ts": "2026-02-27T11:34:38.264096+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:34:54.507972+00:00", "type": "task_metrics_event", "task_id": "90f91367", "task_type": "task", "duration_sec": 16.118, "tool_calls": 0, "tool_errors": 0}
+{"ts": "2026-02-27T11:35:09.696674+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:35:40.910073+00:00", "type": "main_loop_heartbeat", "offset": 33823929, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-27T11:36:20.540123+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-27T11:36:20.563041+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "61317240f92edf48daea65dd7ac0ace4453ff5e6", "max_workers": 1, "model_default": "stepfun/step-3.5-flash:free", "model_code": "stepfun/step-3.5-flash:free", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-27T11:36:21.828719+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "61317240f92edf48daea65dd7ac0ace4453ff5e6", "observed_sha": "61317240f92edf48daea65dd7ac0ace4453ff5e6", "worker_pid": 7488}

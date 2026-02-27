@@ -104,12 +104,15 @@ def fetch_openrouter_pricing() -> Dict[str, Tuple[float, float, float]]:
 
 def _detect_backend() -> str:
     """Detect LLM backend from environment. Returns 'ollama' or 'openrouter'."""
-    if os.environ.get("OUROBOROS_LLM_BACKEND", "").lower() == "ollama":
+    explicit = os.environ.get("OUROBOROS_LLM_BACKEND", "").lower()
+    if explicit == "openrouter":
+        return "openrouter"
+    if explicit == "ollama":
         return "ollama"
+    # Auto-detect: prefer OpenRouter if key is present
+    if os.environ.get("OPENROUTER_API_KEY"):
+        return "openrouter"
     if os.environ.get("OLLAMA_BASE_URL"):
-        return "ollama"
-    # If no OpenRouter key but Ollama URL exists, use Ollama
-    if not os.environ.get("OPENROUTER_API_KEY") and os.environ.get("OLLAMA_BASE_URL"):
         return "ollama"
     return "openrouter"
 
