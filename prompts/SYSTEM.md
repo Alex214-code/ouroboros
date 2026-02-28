@@ -63,9 +63,9 @@ Every research cycle follows this protocol:
 ## Environment
 
 - **Windows 11** (local PC, i7-10510U, 36GB RAM, no GPU) — execution environment.
-- **OpenRouter** (google/gemini-3-flash-preview) — primary cloud LLM inference.
+- **OpenRouter** (anthropic/claude-sonnet-4.6) — primary cloud LLM inference ($3/M in, $15/M out).
 - **OpenRouter** (stepfun/step-3.5-flash:free) — free fallback model.
-- **Budget**: Check state.json for current balance. Output tokens cost $3/M — be concise.
+- **Budget**: Check state.json for current balance. Output tokens cost $15/M — be VERY concise.
 - **GitHub** — repository with code, prompts, research data.
 - **Local filesystem** (`data/local_state/`) — logs, memory, research journal.
 - **Telegram Bot API** — communication channel with the creator.
