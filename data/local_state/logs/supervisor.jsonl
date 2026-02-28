@@ -16,3 +16,23 @@
 {"ts": "2026-02-28T08:07:50.755427+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-28T08:07:50.770106+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "main", "sha": "2d29b46ccef1c0a2b5781e04ae8274771018f4a3", "max_workers": 1, "model_default": "google/gemini-3-flash-preview", "model_code": "google/gemini-3-flash-preview", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
 {"ts": "2026-02-28T08:07:51.530192+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "2d29b46ccef1c0a2b5781e04ae8274771018f4a3", "observed_sha": "2d29b46ccef1c0a2b5781e04ae8274771018f4a3", "worker_pid": 18676}
+{"ts": "2026-02-28T08:07:56.043958+00:00", "type": "auto_resume_triggered"}
+{"ts": "2026-02-28T08:07:57.999362+00:00", "type": "main_loop_heartbeat", "offset": 33823992, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:08:28.856404+00:00", "type": "main_loop_heartbeat", "offset": 33823993, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:08:59.857920+00:00", "type": "main_loop_heartbeat", "offset": 33823993, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:09:42.864820+00:00", "type": "main_loop_heartbeat", "offset": 33823993, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:10:33.534539+00:00", "type": "main_loop_slow_cycle", "duration_sec": 21.019}
+{"ts": "2026-02-28T08:10:33.536536+00:00", "type": "main_loop_heartbeat", "offset": 33823994, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:11:04.097962+00:00", "type": "main_loop_heartbeat", "offset": 33823994, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:11:42.859433+00:00", "type": "main_loop_slow_cycle", "duration_sec": 21.721}
+{"ts": "2026-02-28T08:11:42.860493+00:00", "type": "main_loop_heartbeat", "offset": 33823994, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:12:48.875805+00:00", "type": "telegram_poll_error", "offset": 33823994, "error": "RuntimeError('Telegram getUpdates failed after retries: ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host=\\'api.telegram.org\\', port=443): Read timed out. (read timeout=5)\"))')"}
+{"ts": "2026-02-28T08:13:31.005060+00:00", "type": "telegram_poll_error", "offset": 33823994, "error": "RuntimeError('Telegram getUpdates failed after retries: ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host=\\'api.telegram.org\\', port=443): Read timed out. (read timeout=5)\"))')"}
+{"ts": "2026-02-28T08:14:11.082140+00:00", "type": "telegram_poll_error", "offset": 33823994, "error": "RuntimeError('Telegram getUpdates failed after retries: ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host=\\'api.telegram.org\\', port=443): Read timed out. (read timeout=5)\"))')"}
+{"ts": "2026-02-28T08:16:09.554825+00:00", "type": "telegram_poll_error", "offset": 33823994, "error": "RuntimeError('Telegram getUpdates failed after retries: ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host=\\'api.telegram.org\\', port=443): Read timed out. (read timeout=5)\"))')"}
+{"ts": "2026-02-28T08:17:06.536516+00:00", "type": "main_loop_slow_cycle", "duration_sec": 55.466}
+{"ts": "2026-02-28T08:17:06.548435+00:00", "type": "main_loop_heartbeat", "offset": 33823995, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T08:17:41.571598+00:00", "type": "telegram_poll_error", "offset": 33823995, "error": "RuntimeError('Telegram getUpdates failed after retries: ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host=\\'api.telegram.org\\', port=443): Read timed out. (read timeout=5)\"))')"}
+{"ts": "2026-02-28T08:23:25.965612+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-28T08:23:25.977994+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "main", "sha": "832ae58345a299be0ab80833bcef0a73b30e114d", "max_workers": 1, "model_default": "google/gemini-3-flash-preview", "model_code": "google/gemini-3-flash-preview", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-28T08:23:26.738567+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "832ae58345a299be0ab80833bcef0a73b30e114d", "observed_sha": "832ae58345a299be0ab80833bcef0a73b30e114d", "worker_pid": 28964}
