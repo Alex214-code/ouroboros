@@ -7,10 +7,19 @@
 
 import asyncio
 import logging
+import sys
+from enum import Enum
 from typing import Dict, Any, Optional
 from pathlib import Path
 
 log = logging.getLogger(__name__)
+
+
+class TaskComplexity(Enum):
+    SIMPLE = "simple"
+    MODERATE = "moderate"
+    COMPLEX = "complex"
+    STRATEGIC = "strategic"
 
 try:
     from ouroboros.neuro_evolution import NeuroSymbioticEcosystem, get_ecosystem
@@ -86,12 +95,9 @@ class IntegratedAgent:
         try:
             # Попытка импорта существующего агента
             sys.path.insert(0, str(self.repo_dir))
-            from ouroboros.agent import Agent
-            self.legacy_agent = Agent(
-                repo_dir=self.repo_dir,
-                drive_root=self.drive_root,
-                branch_dev=self.branch_dev
-            )
+            from ouroboros.agent import OuroborosAgent, Env
+            env = Env(repo_dir=self.repo_dir, drive_root=self.drive_root, branch_dev=self.branch_dev)
+            self.legacy_agent = OuroborosAgent(env=env)
             log.info("Legacy агент Ouroboros успешно инициализирован")
         except ImportError as e:
             log.warning(f"Не удалось импортировать legacy агента: {e}")

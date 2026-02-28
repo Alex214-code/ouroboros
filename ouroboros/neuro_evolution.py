@@ -28,6 +28,26 @@ class Component:
     speed_ms: int
     is_available: bool = True
 
+@dataclass
+class InferenceRequest:
+    """Запрос на инференс к компоненту экосистемы."""
+    prompt: str
+    component_id: Optional[str] = None
+    max_tokens: int = 2048
+    temperature: float = 0.7
+    context: Optional[Dict[str, Any]] = None
+
+@dataclass
+class InferenceResult:
+    """Результат инференса от компонента."""
+    text: str
+    component_id: str
+    tokens_used: int = 0
+    latency_ms: float = 0.0
+    cost: float = 0.0
+    metadata: Optional[Dict[str, Any]] = None
+
+
 class NeuroSymbioticEcosystem:
     def __init__(self):
         self.components = self._init_components()

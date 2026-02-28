@@ -45,7 +45,7 @@ DATA_ROOT = REPO_DIR / "data" / "local_state"
 # ============================================================
 # Budget (OpenRouter free tier = бесплатно, но агенту нужна цифра)
 # ============================================================
-TOTAL_BUDGET = 16.38  # OpenRouter balance (Gemini 3 Flash: $0.50/M in + $3.00/M out)
+TOTAL_BUDGET = 14.17  # OpenRouter balance (Gemini 3 Flash: $0.50/M in + $3.00/M out)
 
 # ============================================================
 # === НАСТРОЙКИ ДЛЯ CLOUD INFERENCE (OpenRouter) ===
