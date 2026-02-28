@@ -1,3 +1,10 @@
 {"ts": "2026-02-28T07:38:51.076960+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-28T07:38:51.095168+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "3f36b1ce30c1543de54538dbf3aacc2bd73ebffd", "max_workers": 1, "model_default": "google/gemini-3-flash-preview", "model_code": "google/gemini-3-flash-preview", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
 {"ts": "2026-02-28T07:38:53.609107+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "3f36b1ce30c1543de54538dbf3aacc2bd73ebffd", "observed_sha": "3f36b1ce30c1543de54538dbf3aacc2bd73ebffd", "worker_pid": 3792}
+{"ts": "2026-02-28T07:38:57.051106+00:00", "type": "auto_resume_triggered"}
+{"ts": "2026-02-28T07:38:58.994417+00:00", "type": "main_loop_heartbeat", "offset": 33823992, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T07:39:29.862477+00:00", "type": "main_loop_heartbeat", "offset": 33823992, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T07:40:00.729873+00:00", "type": "main_loop_heartbeat", "offset": 33823992, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
+{"ts": "2026-02-28T07:53:44.095616+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-28T07:53:44.106600+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "main", "sha": "8cb466a3c87a594411a78603edfb79b02a99fd36", "max_workers": 1, "model_default": "google/gemini-3-flash-preview", "model_code": "google/gemini-3-flash-preview", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-28T07:53:45.108394+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "8cb466a3c87a594411a78603edfb79b02a99fd36", "observed_sha": "8cb466a3c87a594411a78603edfb79b02a99fd36", "worker_pid": 17828}
