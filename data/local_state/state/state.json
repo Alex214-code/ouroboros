@@ -10,18 +10,18 @@
   "spent_tokens_cached": 80275,
   "session_id": "",
   "current_branch": "main",
-  "current_sha": "f3da2a8efcf57af857e8222afe7748a4b88cc130",
+  "current_sha": "2d29b46ccef1c0a2b5781e04ae8274771018f4a3",
   "evolution_mode_enabled": false,
   "evolution_cycle": 0,
   "last_owner_message_at": "",
   "last_evolution_task_at": "",
   "budget_messages_since_report": 1,
-  "session_total_snapshot": 3.91889033,
+  "session_total_snapshot": 4.101301996,
   "session_spent_snapshot": 0.07876725000000001,
   "budget_drift_pct": null,
   "budget_drift_alert": false,
   "evolution_consecutive_failures": 0,
-  "openrouter_total_usd": 3.91889033,
-  "openrouter_daily_usd": 0.43630605,
-  "openrouter_last_check_at": "2026-02-28T07:54:31.663379+00:00"
+  "openrouter_total_usd": 4.101301996,
+  "openrouter_daily_usd": 0.618717716,
+  "openrouter_last_check_at": "2026-02-28T08:07:50.303532+00:00"
 }
