@@ -4,3 +4,4 @@ __pycache__/
 ouroboros_data/
 *.log
 INIT_GIT.bat
+.claude/

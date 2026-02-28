@@ -172,9 +172,9 @@ class OuroborosAgent:
                     # Validate branch name
                     if not re.match(r'^[a-zA-Z0-9_/-]+$', self.env.branch_dev):
                         raise ValueError(f"Invalid branch name: {self.env.branch_dev}")
-                    # Pull with rebase before push
+                    # Pull with rebase before push (autostash handles unstaged changes from running agent)
                     subprocess.run(
-                        ["git", "pull", "--rebase", "origin", self.env.branch_dev],
+                        ["git", "pull", "--rebase", "--autostash", "origin", self.env.branch_dev],
                         cwd=str(self.env.repo_dir), timeout=60, check=True
                     )
                     # Push
