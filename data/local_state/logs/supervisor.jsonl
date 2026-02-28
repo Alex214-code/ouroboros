@@ -1,0 +1,2 @@
+{"ts": "2026-02-28T07:38:51.076960+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
+{"ts": "2026-02-28T07:38:51.095168+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "ouroboros", "sha": "3f36b1ce30c1543de54538dbf3aacc2bd73ebffd", "max_workers": 1, "model_default": "google/gemini-3-flash-preview", "model_code": "google/gemini-3-flash-preview", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}

@@ -10,7 +10,18 @@
   "spent_tokens_cached": 0,
   "session_id": "",
   "current_branch": "ouroboros",
-  "current_sha": "",
+  "current_sha": "3f36b1ce30c1543de54538dbf3aacc2bd73ebffd",
   "evolution_mode_enabled": false,
-  "evolution_cycle": 0
+  "evolution_cycle": 0,
+  "last_owner_message_at": "",
+  "last_evolution_task_at": "",
+  "budget_messages_since_report": 0,
+  "session_total_snapshot": 3.84949688,
+  "session_spent_snapshot": 0.0,
+  "budget_drift_pct": null,
+  "budget_drift_alert": false,
+  "evolution_consecutive_failures": 0,
+  "openrouter_total_usd": 3.84949688,
+  "openrouter_daily_usd": 0.3669126,
+  "openrouter_last_check_at": "2026-02-28T07:38:50.118632+00:00"
 }

@@ -1,1 +1,8 @@
-{"pending": [], "running": []}
+{
+  "ts": "2026-02-28T07:38:51.093966+00:00",
+  "reason": "startup",
+  "pending_count": 0,
+  "running_count": 0,
+  "pending": [],
+  "running": []
+}
