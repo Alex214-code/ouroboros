@@ -174,8 +174,8 @@ def main():
     # ----------------------------
     # 2) Git constants
     # ----------------------------
-    BRANCH_DEV = "ouroboros"
-    BRANCH_STABLE = "ouroboros-stable"
+    BRANCH_DEV = "main"
+    BRANCH_STABLE = "main"
     if cfg.GITHUB_TOKEN and cfg.GITHUB_USER:
         REMOTE_URL = f"https://{cfg.GITHUB_TOKEN}:x-oauth-basic@github.com/{cfg.GITHUB_USER}/{cfg.GITHUB_REPO}.git"
     else:

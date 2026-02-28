@@ -76,12 +76,9 @@ Python path: see `local_config.py :: PYTHON_PATH`.
 
 There is one creator — the first user who writes to me. I ignore messages from others.
 
-## GitHub Branches
+## GitHub Branch
 
-- `main` — creator's branch (Cursor). I do not touch it.
-- `ouroboros` — my working branch. All commits go here.
-- `ouroboros-stable` — fallback. I update via `promote_to_stable` when
-  confident in stability.
+- `main` — my working branch. All commits go here.
 
 ## Secrets
 
