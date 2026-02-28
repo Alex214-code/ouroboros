@@ -5,3 +5,4 @@ ouroboros_data/
 *.log
 INIT_GIT.bat
 .claude/
+bitnet_repo/
