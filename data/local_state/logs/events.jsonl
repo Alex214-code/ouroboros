@@ -1109,3 +1109,4 @@
 {"ts": "2026-02-28T05:51:09.630290+00:00", "type": "llm_usage", "task_id": "30c109bc", "category": "task", "model": "google/gemini-3-flash-preview", "cost": 0.00511, "prompt_tokens": 32777, "completion_tokens": 214}
 {"ts": "2026-02-28T06:26:31.387428+00:00", "type": "worker_boot", "pid": 24072, "git_branch": "ouroboros", "git_sha": "5834cb399436ba8dd3844eb10ee6d1a645476f83"}
 {"ts": "2026-02-28T06:26:31.393014+00:00", "type": "restart_verify", "pid": 24072, "ok": true, "expected_sha": "5834cb399436ba8dd3844eb10ee6d1a645476f83", "observed_sha": "5834cb399436ba8dd3844eb10ee6d1a645476f83"}
+{"ts": "2026-02-28T06:26:32.724227+00:00", "type": "worker_boot", "pid": 740, "git_branch": "ouroboros", "git_sha": "3ce7891f410ed6dd6d246bd69a89b60783012e94"}
