@@ -95,6 +95,8 @@ CORE_TOOL_NAMES = {
     "read_screen", "find_on_screen", "analyze_desktop",
     "desktop_list_windows", "desktop_focus_window", "desktop_resize_window",
     "desktop_minimize", "desktop_mouse_pos", "desktop_screen_size",
+    # Research tools
+    "research_add", "research_list", "research_update", "research_search",
 }
 
 

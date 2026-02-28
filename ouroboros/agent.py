@@ -33,13 +33,7 @@ from ouroboros.memory import Memory
 from ouroboros.context import build_llm_messages
 from ouroboros.loop import run_llm_loop
 
-try:
-    from ouroboros.brain import Brain
-    from ouroboros.graph import KnowledgeGraph
-    _BRAIN_AVAILABLE = True
-except ImportError as e:
-    log.warning(f"Brain/Graph not available, running without cognitive layer: {e}")
-    _BRAIN_AVAILABLE = False
+from ouroboros.research import ResearchJournal
 
 
 # ---------------------------------------------------------------------------
@@ -91,17 +85,14 @@ class OuroborosAgent:
         self.tools = ToolRegistry(repo_dir=env.repo_dir, drive_root=env.drive_root)
         self.memory = Memory(drive_root=env.drive_root, repo_dir=env.repo_dir)
 
-        # Initialize Graph and Brain (cognitive layer)
-        self.graph = None
-        self.brain = None
-        if _BRAIN_AVAILABLE:
-            try:
-                graph_path = env.drive_path('state') / 'graph.json'
-                self.graph = KnowledgeGraph(path=str(graph_path))
-                self.brain = Brain(graph=self.graph)
-                log.info(f"Brain initialized: {self.brain.get_status()}")
-            except Exception as e:
-                log.warning(f"Brain initialization failed: {e}")
+        # Research journal (replaces Brain/KnowledgeGraph)
+        self.research_journal = None
+        try:
+            journal_path = env.drive_path('research') / 'journal.jsonl'
+            self.research_journal = ResearchJournal(path=journal_path)
+            log.info(f"Research journal initialized: {self.research_journal.get_summary()}")
+        except Exception as e:
+            log.warning(f"Research journal initialization failed: {e}")
 
         self._log_worker_boot_once()
 
@@ -434,17 +425,14 @@ class OuroborosAgent:
                 initial_effort = "medium"
 
             try:
-                # Brain: enrich context with knowledge graph and reflection
-                if self.brain:
+                # Research journal: inject context so agent remembers what it tried
+                if self.research_journal:
                     try:
-                        task_description = str(task.get("text") or task.get("description") or "")
-                        decision = self.brain.process(task_description)
-                        # Inject graph context into messages if available
-                        graph_ctx = decision.get("context_from_graph")
-                        if graph_ctx and messages:
-                            messages.append({"role": "system", "content": f"[Knowledge Graph context]:\n{graph_ctx}"})
+                        journal_ctx = self.research_journal.get_context_summary()
+                        if journal_ctx and messages:
+                            messages.append({"role": "system", "content": f"[Research Journal]:\n{journal_ctx}"})
                     except Exception as e:
-                        log.debug(f"Brain processing skipped: {e}")
+                        log.debug(f"Research journal context skipped: {e}")
 
                 text, usage, llm_trace = run_llm_loop(
                     messages=messages,
@@ -461,13 +449,7 @@ class OuroborosAgent:
                     drive_root=self.env.drive_root,
                 )
 
-                # Brain: learn from completed task
-                if self.brain:
-                    try:
-                        task_description = str(task.get("text") or task.get("description") or "")
-                        self.brain.learn(task_description, text[:500])
-                    except Exception as e:
-                        log.debug(f"Brain learning skipped: {e}")
+                # Research journal: no auto-learning, agent writes via tools
             except Exception as e:
                 tb = traceback.format_exc()
                 append_jsonl(drive_logs / "events.jsonl", {

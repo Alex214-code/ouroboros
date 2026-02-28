@@ -347,6 +347,18 @@ def build_llm_messages(
         if kb_index.strip():
             semi_stable_parts.append("## Knowledge base\n\n" + clip_text(kb_index, 50000))
 
+    # Research journal context (so agent always sees its research history)
+    research_journal_path = env.drive_path("research/journal.jsonl")
+    if research_journal_path.exists():
+        try:
+            from ouroboros.research import ResearchJournal
+            journal = ResearchJournal(path=research_journal_path)
+            research_summary = journal.get_context_summary(max_entries=20)
+            if research_summary.strip():
+                semi_stable_parts.append("## Research Journal\n\n" + clip_text(research_summary, 30000))
+        except Exception:
+            log.debug("Failed to load research journal for context", exc_info=True)
+
     semi_stable_text = "\n\n".join(semi_stable_parts)
 
     # Dynamic content: changes every round

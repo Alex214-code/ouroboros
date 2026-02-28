@@ -1,7 +1,7 @@
 [project]
 name = "ouroboros"
-version = "6.6.0"
-description = "Self-creating agent"
+version = "7.0.0"
+description = "CPU Migration Researcher — AI agent focused on finding ways to run frontier AI on CPU-only hardware"
 requires-python = ">=3.10"
 dependencies = [
     "openai",

@@ -381,6 +381,35 @@ def _handle_tool_calls(
     return _process_tool_results(results, messages, llm_trace, emit_progress)
 
 
+import re as _re
+
+# Patterns to strip leaked XML tool-call artifacts from Gemini responses
+_XML_BLOCK_PATTERNS = [
+    # Full <functionresult ...>...</functionresult> blocks
+    _re.compile(r'<functionresult[^>]*>.*?</functionresult>', _re.DOTALL),
+    # Full <functioninvoke ...>...</functioninvoke> blocks
+    _re.compile(r'<functioninvoke[^>]*>.*?</functioninvoke>', _re.DOTALL),
+    # Orphaned opening/closing tags
+    _re.compile(r'</?(functioninvoke|functionresult|parameter|content)[^>]*>'),
+    # XML comments
+    _re.compile(r'<!--.*?-->', _re.DOTALL),
+]
+
+def _strip_xml_tool_leaks(text: str) -> str:
+    """Remove XML tool-call artifacts that some models (Gemini) leak into text responses."""
+    if not text:
+        return text
+    # Quick check before expensive regex
+    if '<function' not in text and '<!-- ' not in text:
+        return text
+    cleaned = text
+    for pattern in _XML_BLOCK_PATTERNS:
+        cleaned = pattern.sub('', cleaned)
+    # Collapse multiple blank lines left after stripping
+    cleaned = _re.sub(r'\n{3,}', '\n\n', cleaned)
+    return cleaned.strip()
+
+
 def _handle_text_response(
     content: Optional[str],
     llm_trace: Dict[str, Any],
@@ -392,6 +421,7 @@ def _handle_text_response(
     Returns: (final_text, accumulated_usage, llm_trace)
     """
     if content and content.strip():
+        content = _strip_xml_tool_leaks(content)
         llm_trace["assistant_notes"].append(content.strip()[:320])
     return (content or ""), accumulated_usage, llm_trace
 
