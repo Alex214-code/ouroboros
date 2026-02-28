@@ -12,3 +12,4 @@
 {"ts": "2026-02-28T07:53:51.295848+00:00", "type": "main_loop_heartbeat", "offset": 33823992, "workers_total": 1, "workers_alive": 1, "pending_count": 0, "running_count": 0}
 {"ts": "2026-02-28T07:54:32.103059+00:00", "type": "worker_spawn_start", "start_method": "spawn", "count": 1}
 {"ts": "2026-02-28T07:54:32.114571+00:00", "type": "launcher_start", "mode": "local_ollama", "branch": "main", "sha": "f3da2a8efcf57af857e8222afe7748a4b88cc130", "max_workers": 1, "model_default": "google/gemini-3-flash-preview", "model_code": "google/gemini-3-flash-preview", "model_light": "stepfun/step-3.5-flash:free", "ollama_url": "http://localhost:11434/v1", "auto_push_interval": 300}
+{"ts": "2026-02-28T07:54:33.116620+00:00", "type": "worker_sha_verify", "ok": true, "expected_sha": "f3da2a8efcf57af857e8222afe7748a4b88cc130", "observed_sha": "f3da2a8efcf57af857e8222afe7748a4b88cc130", "worker_pid": 30460}
